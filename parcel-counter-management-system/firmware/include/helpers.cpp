@@ -1,0 +1,3 @@
+#include "helpers.h"
+String escapeJsonString(const String &s){String out;for(unsigned int i=0;i<s.length();i++){char c=s.charAt(i);if(c=='"'||c=='\\')out+='\\';out+=c;}return out;}
+String createStatusJson(int lockerIndex,const LockerState &s){unsigned long ts=millis()/1000UL;String j="{";j+="\"locker\":"+String(lockerIndex)+",";j+="\"occupied\":"+String(s.occupied?"true":"false")+",";j+="\"userId\":"+String(s.userId)+",";j+="\"startAt\":"+String(s.startAt)+",";j+="\"allowedMs\":"+String(s.allowedMs)+",";j+="\"ts\":"+String(ts);j+="}";return j;}
