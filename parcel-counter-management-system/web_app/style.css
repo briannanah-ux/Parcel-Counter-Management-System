@@ -1,1 +1,36 @@
-/* style.css from conversation */
+/* Logs page styles */
+.log-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 900px;
+}
+
+.log-block {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  width: 260px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 4px 6px;
+}
+
+th {
+  background-color: #0b7285;
+  color: #fff;
+}
