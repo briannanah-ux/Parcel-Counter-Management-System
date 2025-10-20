@@ -34,3 +34,4 @@ const byte KEYPAD_COL_PINS[KEYPAD_COLS] = {33, 32, 31, 28};
 // --- Baud rates ---
 #define SERIAL_BAUD 115200
 
+#endif
