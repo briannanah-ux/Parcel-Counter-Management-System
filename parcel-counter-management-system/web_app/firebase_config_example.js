@@ -1,1 +1,0 @@
-// insert your firebaseConfig object here
