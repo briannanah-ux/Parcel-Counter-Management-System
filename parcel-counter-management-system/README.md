@@ -52,9 +52,7 @@ The dashboard connects to Firebase and updates locker status live.
 - 🟥 **Red:** Occupied  
 - 📋 **Logs:** Timestamped locker entries and user IDs  
 
-📸 Example screenshots are in `docs/demo_pictures/`.
 
----
 
 
 
