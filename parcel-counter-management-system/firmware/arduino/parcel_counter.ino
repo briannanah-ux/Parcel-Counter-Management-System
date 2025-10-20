@@ -175,4 +175,3 @@ void sendLockerUpdate(int i) {
   nodemcu.println(msg);
   Serial.println(msg);
 }
-// Arduino code omitted for brevity (full version in conversation)
