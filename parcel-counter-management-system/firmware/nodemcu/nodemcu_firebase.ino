@@ -2,10 +2,10 @@
 #include <FirebaseESP8266.h>
 #include <ArduinoJson.h>
 
-#define WIFI_SSID "YOUR_WIFI_NAME"
-#define WIFI_PASS "YOUR_WIFI_PASSWORD"
-#define FIREBASE_HOST "your-project.firebaseio.com"
-#define FIREBASE_AUTH "YOUR_FIREBASE_DATABASE_SECRET"
+#define WIFI_SSID "WIFI_NAME"
+#define WIFI_PASS "WIFI_PASSWORD"
+#define FIREBASE_HOST "project.firebaseio.com"
+#define FIREBASE_AUTH "FIREBASE_DATABASE_SECRET"
 
 #define LED_CONN   D4
 #define LED_ERROR  D3
