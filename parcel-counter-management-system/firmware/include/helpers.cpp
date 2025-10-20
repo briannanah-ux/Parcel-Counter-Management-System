@@ -13,4 +13,4 @@ struct LockerState {
 String escapeJsonString(const String &s);
 String createStatusJson(int lockerIndex, const LockerState &s);
 
-
+#endif
