@@ -1,15 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 
-// --- Firebase Config (replace with your own project details) ---
+// --- Firebase Config ---
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "your-project.firebaseapp.com",
-  databaseURL: "https://your-project.firebaseio.com",
-  projectId: "your-project",
-  storageBucket: "your-project.appspot.com",
+  apiKey: "API_KEY",
+  authDomain: "project.firebaseapp.com",
+  databaseURL: "https://project.firebaseio.com",
+  projectId: "project_id",
+  storageBucket: "project.appspot.com",
   messagingSenderId: "000000000000",
-  appId: "YOUR_APP_ID"
+  appId: "APP_ID"
 };
 
 // --- Initialize Firebase ---
