@@ -2,262 +2,242 @@
 
 > **A cloud-connected embedded system that automates temporary parcel storage using fingerprint authentication, RFID session tracking and real-time locker monitoring.**
 
-![Hero Banner](images/hero/project-banner.png)
-
-![Project Status](https://img.shields.io/badge/Status-Completed-success)
+![Project Status](https://img.shields.io/badge/Status-Portfolio%20Refresh-informational)
 ![Platform](https://img.shields.io/badge/Platform-Arduino%20Mega-blue)
 ![IoT](https://img.shields.io/badge/IoT-ESP8266-orange)
 ![Database](https://img.shields.io/badge/Firebase-yellow)
 ![Language](https://img.shields.io/badge/C%2B%2B-Arduino-informational)
-![Degree](https://img.shields.io/badge/BEng-Electronic%20Engineering-purple)
+![Licence](https://img.shields.io/badge/Licence-MIT-green)
 
 ---
 
-# Project at a Glance
+## Project at a Glance
 
 | | |
 |:---|:---|
 | **Project** | Smart Parcel Counter Management System |
-| **Project Type** | Final Year Project |
+| **Project Type** | Final-year engineering project |
 | **Degree** | BEng (Hons) Electronic Engineering |
 | **Outcome** | Distinction |
 | **Primary Controller** | Arduino Mega 2560 |
 | **Communication** | ESP8266 (NodeMCU) |
 | **Cloud Platform** | Firebase Realtime Database |
-| **Languages** | C++, HTML, CSS, JavaScript |
-| **Authentication** | Fingerprint Biometrics |
+| **Primary Language** | Embedded C++ |
+| **Authentication** | Fingerprint biometrics |
 | **Session Tracking** | RFID |
-| **Application** | Retail Parcel Management |
+| **Application** | Retail parcel management |
 
 ---
 
-# The Problem
+## The Problem
 
 For my final-year project, I wanted to solve a practical engineering problem rather than simply demonstrate a collection of technologies.
 
 While visiting supermarkets and retail stores, I noticed that temporary parcel lockers could be misused, reducing their availability for genuine customers and making them difficult to manage efficiently.
 
-This project explores how embedded systems can automate parcel storage through biometric authentication, RFID-based session management and cloud-connected monitoring, creating a more secure and transparent workflow for both customers and administrators.
+This project explores how embedded systems can automate parcel storage through biometric authentication, RFID-based session management and cloud-connected monitoring, creating a more secure and transparent workflow for customers and administrators.
 
 ---
 
-# The Solution
+## The Solution
 
-The Smart Parcel Counter Management System is an embedded IoT prototype that automates the complete parcel storage process.
+The Smart Parcel Counter Management System is an embedded IoT prototype designed to automate parcel storage and collection.
 
-Customers register their fingerprint when storing a parcel, receive an RFID tag representing their active shopping session, and later retrieve their parcel using biometric verification.
+An Arduino Mega coordinates the user interface, authentication devices and locker hardware. An ESP8266 provides Wi-Fi connectivity and communicates with Firebase Realtime Database, separating real-time hardware control from cloud communication.
 
-An Arduino Mega coordinates all hardware components while an ESP8266 synchronises locker information with Firebase, allowing administrators to monitor the system through a web dashboard.
+The repository is a portfolio refresh of the original university prototype. It preserves the engineering design, firmware and technical documentation while presenting them in a clearer, more maintainable structure.
 
 ---
 
-# System Capabilities
+## System Capabilities
 
-- Secure fingerprint-based parcel collection
-- RFID shopping session management
+- Fingerprint-based parcel collection
+- RFID shopping-session tracking
 - Electronic locker control
 - LCD-guided customer interaction
-- Real-time Firebase synchronisation
-- Cloud-based locker monitoring
+- Firebase synchronisation through an ESP8266
 - Audible and visual user feedback
-- Multi-device embedded system integration
+- Multi-controller embedded-system integration
+- Documented hardware, firmware and cloud architecture
 
 ---
 
-# Customer Journey
+## Customer Journey
 
 ![Customer Journey](images/diagrams/customer-journey.svg)
 
-1. Customer selects an available locker.
-2. Fingerprint is enrolled.
-3. Parcel is placed inside the locker.
-4. RFID tag is issued.
-5. Shopping session is monitored.
-6. Customer returns.
-7. Fingerprint is verified.
-8. Locker unlocks.
-9. RFID tag is returned.
-10. Locker becomes available again.
+1. The customer selects an available locker.
+2. A fingerprint is enrolled.
+3. The parcel is placed inside the locker.
+4. An RFID tag represents the active shopping session.
+5. The storage period is monitored.
+6. The customer returns.
+7. The fingerprint is verified.
+8. The locker unlocks.
+9. The RFID tag is returned.
+10. The locker becomes available again.
 
 ---
 
-# System Architecture
+## System Architecture
 
 ![System Architecture](images/diagrams/system-architecture.svg)
 
-The system consists of three layers:
+The system is organised into three main layers:
 
-- Embedded control (Arduino Mega)
-- Wireless communication (ESP8266 + Firebase)
-- Web monitoring dashboard
+- **Embedded control:** Arduino Mega and connected peripherals
+- **Wireless communication:** ESP8266 and Firebase
+- **Monitoring:** cloud data intended for an administrative interface
 
-The Arduino manages all real-time hardware interaction while the ESP8266 handles wireless communication with Firebase, keeping hardware control and networking responsibilities separate.
+The Arduino manages time-sensitive hardware interaction, while the ESP8266 handles wireless communication. This separation reduces networking complexity in the main controller firmware.
+
+Read the detailed [system architecture documentation](docs/02-system-architecture.md).
 
 ---
 
-# Hardware Overview
-
-The prototype integrates multiple embedded devices into a single system.
+## Hardware Overview
 
 | Component | Purpose |
-|-----------|---------|
+|---|---|
 | Arduino Mega 2560 | Main system controller |
-| ESP8266 | Wi-Fi communication |
-| Fingerprint Sensor | Customer authentication |
-| RFID Reader | Shopping session tracking |
-| LCD Display | User guidance |
-| Keypad | Locker selection |
-| Relay Module | Locker control |
-| LEDs | Session indication |
+| ESP8266 | Wi-Fi and Firebase communication |
+| Fingerprint sensor | Customer authentication |
+| RFID reader | Shopping-session tracking |
+| LCD display | User guidance |
+| Keypad | User input and locker selection |
+| Relay modules | Electronic lock control |
+| LEDs | Visual status indication |
 | Buzzer | Audible feedback |
 
-More information is available in [docs/hardware.md](docs/hardware.md).
+See the [hardware design](docs/03-hardware-design.md), [pinout](hardware/pinout.md) and [bill of materials](hardware/bom/bill-of-materials.md).
 
 ---
 
-# Firmware Overview
+## Firmware Overview
 
-The firmware continuously coordinates customer interaction, hardware peripherals and cloud communication.
+The firmware coordinates customer interaction, hardware peripherals, locker states and cloud communication.
 
-Major responsibilities include:
+The repository contains separate source areas for:
 
-- System initialisation
-- Fingerprint enrolment
-- Fingerprint verification
-- Locker control
-- RFID management
-- LCD updates
-- Timer management
-- Firebase communication
+- [Arduino Mega firmware](firmware/arduino/)
+- [ESP8266 firmware](firmware/esp8266/)
 
-The firmware naturally follows a state-based workflow from customer registration through to parcel collection.
-
-See [docs/firmware.md](docs/firmware.md).
+Detailed design information is available in the [firmware architecture document](docs/04-firmware-architecture.md).
 
 ---
 
-# Cloud Monitoring
+## Cloud and Monitoring
 
-The ESP8266 communicates with Firebase to synchronise locker information in real time.
+The ESP8266 firmware provides the communication layer between the Arduino Mega and Firebase Realtime Database.
 
-Typical information includes:
+The current portfolio repository documents the intended monitoring workflow, but it does not yet include a production-ready web dashboard.
 
-- Locker availability
-- Active locker number
-- Session status
-- Timer state
-- Authentication status
-
-A web dashboard presents this information to administrators, providing a live overview of the system.
-
-See [web/README.md](web/README.md).
+See [cloud and dashboard documentation](docs/05-cloud-and-dashboard.md).
 
 ---
 
-# Project Gallery
-
-| Prototype | Dashboard |
-|-----------|-----------|
-| *(Add prototype photo)* | *(Add dashboard screenshot)* |
-
-| Circuit Diagram | Hardware |
-|----------------|----------|
-| *(Add circuit image)* | *(Add hardware photo)* |
-
----
-
-# Repository Structure
+## Repository Structure
 
 ```text
-smart-parcel-counter-management-system/
-│
+Parcel-Counter-Management-System/
 ├── README.md
 ├── LICENSE
-│
+├── CHANGELOG.md
+├── .gitignore
 ├── docs/
-│   ├── architecture.md
-│   ├── hardware.md
-│   ├── firmware.md
-│   ├── communication.md
-│   ├── testing.md
-│   ├── challenges.md
-│   └── future-improvements.md
-│
+│   ├── 01-system-overview.md
+│   ├── 02-system-architecture.md
+│   ├── 03-hardware-design.md
+│   ├── 04-firmware-architecture.md
+│   ├── 05-cloud-and-dashboard.md
+│   ├── 06-testing-and-validation.md
+│   ├── 07-design-decisions.md
+│   ├── 08-challenges-and-limitations.md
+│   ├── 09-future-improvements.md
+│   └── 10-lessons-learned.md
 ├── firmware/
 │   ├── arduino/
-│   ├── esp8266/
-│   └── README.md
-│
+│   └── esp8266/
 ├── hardware/
-│   ├── circuit-diagrams/
-│   ├── components/
-│   └── README.md
-│
-├── web/
-│   └── README.md
-│
+│   ├── bom/
+│   ├── datasheets/
+│   ├── schematics/
+│   └── pinout.md
 ├── images/
+│   ├── branding/
 │   ├── diagrams/
-│   ├── hardware/
-│   ├── screenshots/
-│   └── hero/
-│
-└── assets/
+│   ├── prototype/
+│   └── screenshots/
+└── web/
 ```
 
 ---
 
-# Documentation
+## Documentation
 
-Additional documentation is available in the `docs` directory.
-
-- Architecture
-- Hardware Design
-- Firmware Design
-- Communication Flow
-- Engineering Decisions
-- Testing
-- Challenges
-- Future Improvements
-
----
-
-# Lessons Learned
-
-This project strengthened my understanding of embedded systems by requiring the integration of electronics, firmware and cloud technologies into a single solution.
-
-Looking back, it also highlighted the importance of modular software design, clear hardware interfaces and documenting engineering decisions throughout the development process.
+1. [System overview](docs/01-system-overview.md)
+2. [System architecture](docs/02-system-architecture.md)
+3. [Hardware design](docs/03-hardware-design.md)
+4. [Firmware architecture](docs/04-firmware-architecture.md)
+5. [Cloud and dashboard](docs/05-cloud-and-dashboard.md)
+6. [Testing and validation](docs/06-testing-and-validation.md)
+7. [Design decisions](docs/07-design-decisions.md)
+8. [Challenges and limitations](docs/08-challenges-and-limitations.md)
+9. [Future improvements](docs/09-future-improvements.md)
+10. [Lessons learned](docs/10-lessons-learned.md)
+11. [Firmware audit notes](docs/11-firmware-audit-notes.md)
+12. [Internal link audit](docs/12-internal-link-audit.md)
 
 ---
 
-# Future Improvements
-
-If I were to continue developing this project today, I would:
-
-- Design a custom PCB.
-- Refactor the firmware into modular source files.
-- Replace blocking delays with non-blocking scheduling.
-- Formalise the firmware as a finite state machine.
-- Add encrypted communication.
-- Develop a mobile application.
-- Improve diagnostics and fault logging.
-
----
-
-# Getting Started
+## Getting Started
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/<username>/smart-parcel-counter-management-system.git
+git clone https://github.com/briannanah-ux/Parcel-Counter-Management-System.git
 ```
 
-Open the Arduino firmware in the Arduino IDE and upload it to the Arduino Mega.
+Open the Arduino sketch in the Arduino IDE and install the libraries listed in [`firmware/arduino/libraries.md`](firmware/arduino/libraries.md).
 
-Configure the ESP8266 with your Wi-Fi credentials and Firebase project details before deployment.
+Configure the ESP8266 using the guidance in [`firmware/esp8266/README.md`](firmware/esp8266/README.md). Do not commit real Wi-Fi credentials or Firebase secrets.
 
 ---
 
-# License
+## Lessons Learned
 
-This project is released under the MIT License.
+This project strengthened my understanding of embedded systems by requiring electronics, firmware and cloud technologies to operate as one solution.
+
+It also highlighted the importance of modular software design, clear hardware interfaces, secure configuration management and documenting engineering decisions throughout development.
+
+---
+
+## Future Improvements
+
+Further development could include:
+
+- designing a custom PCB;
+- replacing blocking delays with non-blocking scheduling;
+- formalising the firmware as a finite-state machine;
+- improving authentication and encrypted communication;
+- adding more detailed diagnostics and fault logging;
+- developing a production-ready monitoring dashboard;
+- expanding the prototype to support more lockers.
+
+See the full [future improvements document](docs/09-future-improvements.md).
+
+---
+
+## Author
+
+**Brian Nana**  
+BEng (Hons) Electronic Engineering  
+MSc Renewable Energy Systems Technology
+
+This repository forms part of my engineering portfolio and demonstrates embedded-system development, IoT integration and technical documentation.
+
+---
+
+## Licence
+
+This project is released under the [MIT Licence](LICENSE).
