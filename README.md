@@ -4,7 +4,7 @@
 
 Secure biometric IoT parcel locker developed as my BEng (Hons) Electronic Engineering final-year project.
 
-> **A cloud-connected embedded system that automates temporary parcel storage using fingerprint authentication, RFID session tracking and real-time locker monitoring.**
+> **IoT-enabled biometric parcel locker developed using Arduino Mega, ESP8266 and Firebase as my BEng (Hons) Electronic Engineering final-year project.**
 
 ![Project Status](https://img.shields.io/badge/Status-Portfolio%20Refresh-informational)
 ![Platform](https://img.shields.io/badge/Platform-Arduino%20Mega-blue)
