@@ -185,3 +185,43 @@ This workflow repeats continuously while the system remains powered.
 The firmware coordinates every stage of the parcel management process, from customer authentication to locker control and cloud communication.
 
 By dividing the implementation into dedicated functions and separating embedded control from wireless communication, the software remains organised and easier to maintain while supporting the complete operation of the Smart Parcel Counter Management System.
+
+## Function-Level Flowcharts
+
+The diagrams below were created from the original Arduino source code. They show how the main firmware functions interact during system initialisation, parcel storage and parcel collection.
+
+### System Initialisation
+
+The `setup()` function configures the serial interfaces, fingerprint sensor, LCD, indicators and locker relays before normal operation begins.
+
+![Setup Flowchart](../images/diagrams/firmware/setup-flowchart.svg)
+
+### Main Execution Loop
+
+The `loop()` function sends the current locker status to the NodeMCU and displays the two main customer options:
+
+* Leave a parcel
+* Take a parcel
+
+The selected operation determines whether the firmware checks for an available locker or begins fingerprint verification for parcel collection.
+
+![Main Loop Flowchart](../images/diagrams/firmware/loop-flowchart.svg)
+
+### Parcel Storage
+
+The storage sequence begins after the firmware identifies an available locker and assigns its fingerprint ID.
+
+The customer presents the same finger twice during enrolment. If the images match, the fingerprint model is stored using the selected locker ID. The locker is then secured, its status is sent to the NodeMCU and the shopping timer begins.
+
+![Parcel Storage Flowchart](../images/diagrams/firmware/parcel-storage-flowchart.svg)
+
+### Parcel Collection
+
+During collection, the firmware searches for a stored fingerprint and uses the returned fingerprint ID to identify the correct locker.
+
+The matching locker is unlocked so that the customer can retrieve the parcel. The customer then presents the same finger again before the locker is secured and its updated status is sent to the NodeMCU.
+
+![Parcel Collection Flowchart](../images/diagrams/firmware/parcel-collection-flowchart.svg)
+
+The locker-specific code is repeated for locker 1 and locker 2 in the original implementation. The flowcharts combine these repeated branches into a single “matching locker” path while preserving the behaviour of the firmware.
+
