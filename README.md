@@ -1,5 +1,9 @@
 # Smart Parcel Counter Management System
 
+![Project Overview](images/branding/project-overview.png)
+
+Secure biometric IoT parcel locker developed as my BEng (Hons) Electronic Engineering final-year project.
+
 > **A cloud-connected embedded system that automates temporary parcel storage using fingerprint authentication, RFID session tracking and real-time locker monitoring.**
 
 ![Project Status](https://img.shields.io/badge/Status-Portfolio%20Refresh-informational)
@@ -241,3 +245,16 @@ This repository forms part of my engineering portfolio and demonstrates embedded
 ## Licence
 
 This project is released under the [MIT Licence](LICENSE).
+
+
+## Gallery
+
+### Project Overview
+
+![Project Gallery](images/branding/project-gallery.png)
+
+### Branding
+
+The project branding, colour palette and icon set are shown below.
+
+![Branding](images/branding/logo-branding.png)
