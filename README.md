@@ -66,7 +66,7 @@ An Arduino Mega coordinates all hardware components while an ESP8266 synchronise
 
 # Customer Journey
 
-![Customer Journey](docs/images/diagrams/customer-journey.svg)
+![Customer Journey](images/diagrams/customer-journey.svg)
 
 1. Customer selects an available locker.
 2. Fingerprint is enrolled.
@@ -83,7 +83,7 @@ An Arduino Mega coordinates all hardware components while an ESP8266 synchronise
 
 # System Architecture
 
-![System Architecture](docs/images/diagrams/system-architecture.svg)
+![System Architecture](images/diagrams/system-architecture.svg)
 
 The system consists of three layers:
 
