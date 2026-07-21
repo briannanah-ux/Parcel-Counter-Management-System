@@ -83,7 +83,7 @@ An Arduino Mega coordinates all hardware components while an ESP8266 synchronise
 
 # System Architecture
 
-![System Architecture](images/diagrams/system-architecture.svg)
+![System Architecture](docs/images/diagrams/system-architecture.svg)
 
 The system consists of three layers:
 
