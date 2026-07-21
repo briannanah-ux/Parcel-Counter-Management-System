@@ -1,17 +1,27 @@
-# Arduino Firmware
+# Arduino Mega Firmware
 
-The Arduino Mega 2560 is the primary controller for the Smart Parcel Counter Management System.
+## Overview
 
-It is responsible for coordinating all real-time hardware interactions, including user registration, fingerprint authentication, RFID monitoring, timer management, LCD updates and locker control.
+This firmware controls the Smart Parcel Counter Management System.
 
-Networking is intentionally handled by a separate ESP8266 module, allowing the Arduino to focus solely on embedded control and deterministic behaviour.
+The Arduino Mega is responsible for:
 
-## Responsibilities
+* Customer interaction through the keypad and LCD
+* Fingerprint enrolment and verification
+* Locker control using relay modules
+* LED and buzzer status indication
+* Timer management
+* Communication with the ESP8266
 
-- Initialise hardware peripherals
-- Register customer sessions
-- Authenticate returning users
-- Monitor RFID activity
-- Control locker relays
-- Manage storage timers
-- Exchange data with the ESP8266
+The firmware communicates with the ESP8266 over a UART serial connection. The ESP8266 manages all Wi-Fi and Firebase communication, allowing the Arduino Mega to focus on real-time hardware control.
+
+## Main Functions
+
+* System initialisation
+* Parcel storage workflow
+* Parcel collection workflow
+* Fingerprint management
+* Locker state monitoring
+* Serial communication
+
+Refer to **`docs/04-firmware-architecture.md`** for a detailed explanation of the firmware design and execution flow.
