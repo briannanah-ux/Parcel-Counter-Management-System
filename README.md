@@ -66,7 +66,7 @@ An Arduino Mega coordinates all hardware components while an ESP8266 synchronise
 
 # Customer Journey
 
-![Customer Journey](images/diagrams/customer-journey.svg)
+![Customer Journey](docs/images/diagrams/customer-journey.svg)
 
 1. Customer selects an available locker.
 2. Fingerprint is enrolled.
