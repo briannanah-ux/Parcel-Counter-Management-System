@@ -1,0 +1,230 @@
+# Testing and Validation
+
+## Overview
+
+Testing was carried out throughout the development of the Smart Parcel Counter Management System to verify that each hardware component, firmware module and communication interface operated as intended.
+
+The validation process was divided into three stages:
+
+1. Component testing
+2. Integration testing
+3. System testing
+
+This approach ensured that individual components functioned correctly before they were combined into the complete prototype.
+
+---
+
+# Component Testing
+
+Each hardware module was tested independently before integration.
+
+| Component          | Test Objective                            | Expected Result                                             |
+| ------------------ | ----------------------------------------- | ----------------------------------------------------------- |
+| Fingerprint Sensor | Verify fingerprint enrolment and matching | Correct fingerprint identified successfully                 |
+| Keypad             | Verify customer input                     | Correct key detected by the Arduino                         |
+| LCD Display        | Verify user messages                      | Information displayed correctly                             |
+| Relay Module       | Verify locker control                     | Relay switches correctly between locked and unlocked states |
+| LEDs               | Verify visual indication                  | Green, amber and red LEDs operate at the correct times      |
+| Buzzer             | Verify warning indication                 | Audible warning produced before storage time expires        |
+| ESP8266            | Verify Wi-Fi connectivity                 | Successful connection to local network                      |
+| Firebase           | Verify cloud communication                | Database updated successfully                               |
+
+---
+
+# Firmware Testing
+
+The firmware was tested by exercising each major function individually.
+
+## Startup
+
+The following items were verified:
+
+* LCD initialisation
+* Fingerprint sensor detection
+* Relay initialisation
+* LED initialisation
+* Serial communication
+
+Successful startup was confirmed when the welcome screen appeared and the main menu was displayed.
+
+---
+
+## Fingerprint Enrolment
+
+The enrolment process was tested by registering a new fingerprint.
+
+The following conditions were verified:
+
+* First fingerprint image captured.
+* Second fingerprint image matched the first.
+* Fingerprint template created successfully.
+* Template stored using the allocated locker ID.
+
+The locker was unlocked only after successful enrolment.
+
+---
+
+## Fingerprint Verification
+
+Previously enrolled fingerprints were presented to the sensor.
+
+Expected behaviour:
+
+* Matching fingerprint grants access.
+* Non-matching fingerprint denies access.
+* Correct locker selected according to the stored fingerprint ID.
+
+---
+
+## Locker Operation
+
+Locker operation was verified throughout the storage and collection process.
+
+The following sequence was confirmed:
+
+1. Locker unlocks.
+2. Customer stores or retrieves parcel.
+3. Customer presents the same fingerprint.
+4. Locker locks again.
+5. Locker status transmitted to the ESP8266.
+
+---
+
+# Communication Testing
+
+Communication between the Arduino Mega and ESP8266 was tested using serial communication.
+
+The Arduino transmitted locker state information after changes in locker occupancy.
+
+Successful communication was confirmed by observing updated values on the ESP8266 and corresponding database updates in Firebase.
+
+---
+
+# Cloud Testing
+
+Cloud functionality was verified after establishing a Wi-Fi connection.
+
+The following aspects were tested:
+
+* Wi-Fi connection established successfully.
+* Firebase connection initialised.
+* Locker status uploaded.
+* Customer activity recorded.
+* Database values updated after locker state changes.
+
+---
+
+# Functional Test Scenarios
+
+## Scenario 1 – Store a Parcel
+
+**Objective**
+
+Verify that a customer can successfully store a parcel.
+
+**Expected Result**
+
+* Available locker allocated.
+* Fingerprint enrolled.
+* Locker unlocked.
+* Parcel stored.
+* Locker locked.
+* Timer started.
+* Locker status updated in Firebase.
+
+---
+
+## Scenario 2 – Collect a Parcel
+
+**Objective**
+
+Verify that the correct customer can retrieve a parcel.
+
+**Expected Result**
+
+* Fingerprint recognised.
+* Matching locker unlocked.
+* Parcel collected.
+* Customer authenticates again.
+* Locker secured.
+* Locker status updated.
+
+---
+
+## Scenario 3 – Incorrect Fingerprint
+
+**Objective**
+
+Verify that unauthorised access is prevented.
+
+**Expected Result**
+
+* Fingerprint rejected.
+* Locker remains locked.
+* Access denied message displayed.
+
+---
+
+## Scenario 4 – Full Lockers
+
+**Objective**
+
+Verify behaviour when no lockers are available.
+
+**Expected Result**
+
+* Customer informed that no lockers are available.
+* No fingerprint enrolment initiated.
+* System returns to the main menu.
+
+---
+
+## Scenario 5 – Storage Time Expires
+
+**Objective**
+
+Verify timer operation.
+
+**Expected Result**
+
+* Green indicator during normal operation.
+* Amber warning before expiry.
+* Red indicator after expiry.
+* Customer instructed to contact staff.
+
+---
+
+# Integration Testing
+
+After validating the individual components, complete system testing was performed.
+
+The following interactions were confirmed:
+
+* Arduino ↔ Fingerprint sensor
+* Arduino ↔ Keypad
+* Arduino ↔ LCD
+* Arduino ↔ Relay modules
+* Arduino ↔ ESP8266
+* ESP8266 ↔ Firebase
+
+Successful integration demonstrated that the complete prototype operated as a single embedded system.
+
+---
+
+# Observations
+
+The prototype operated reliably during repeated storage and retrieval cycles.
+
+Fingerprint authentication consistently selected the correct locker, while serial communication enabled locker status information to be transmitted to the cloud platform.
+
+The modular separation between the Arduino Mega and ESP8266 simplified debugging by allowing hardware control and network communication to be tested independently.
+
+---
+
+# Summary
+
+Testing confirmed that the prototype met its primary design objectives.
+
+The system successfully demonstrated secure fingerprint-based parcel storage, controlled locker access, local user interaction and cloud-based monitoring using Firebase.
+
+Although implemented as an engineering prototype, the testing process demonstrated the feasibility of the overall system architecture and identified areas suitable for future refinement.

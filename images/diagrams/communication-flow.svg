@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs>
+  <style>
+    .title { font: 700 52px Arial, sans-serif; fill: #102A43; }
+    .subtitle { font: 400 24px Arial, sans-serif; fill: #486581; }
+    .box-title { font: 700 26px Arial, sans-serif; fill: #102A43; }
+    .box-body { font: 400 20px Arial, sans-serif; fill: #486581; }
+    .small { font: 400 18px Arial, sans-serif; fill: #486581; }
+    .section { font: 700 22px Arial, sans-serif; fill: #102A43; letter-spacing: 1px; }
+    .arrow { stroke: #5B6B7A; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+    .connector { stroke: #5B6B7A; stroke-width: 4; fill: none; }
+  </style>
+  <marker id="arrowhead" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+    <path d="M0,0 L14,7 L0,14 z" fill="#5B6B7A"/>
+  </marker>
+</defs>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="90" y="90" class="title">Communication Flow</text>
+<text x="90" y="132" class="subtitle">How embedded events become live cloud data</text>
+<rect x="80" y="360" width="220" height="180" rx="18" fill="#8BCF7A" stroke="#B8C7D9" stroke-width="2"/><text x="190.0" y="405" text-anchor="middle" class="box-title">Customer &amp;amp; Sensors</text><text x="190.0" y="440" text-anchor="middle" class="box-body">Fingerprint</text><text x="190.0" y="468" text-anchor="middle" class="box-body">RFID</text><text x="190.0" y="496" text-anchor="middle" class="box-body">Keypad</text><rect x="390" y="360" width="220" height="180" rx="18" fill="#4F8EF7" stroke="#B8C7D9" stroke-width="2"/><text x="500.0" y="405" text-anchor="middle" class="box-title">Arduino Mega</text><text x="500.0" y="440" text-anchor="middle" class="box-body">Processes events</text><text x="500.0" y="468" text-anchor="middle" class="box-body">Controls hardware</text><rect x="700" y="360" width="220" height="180" rx="18" fill="#F6A54C" stroke="#B8C7D9" stroke-width="2"/><text x="810.0" y="405" text-anchor="middle" class="box-title">Serial Link</text><text x="810.0" y="440" text-anchor="middle" class="box-body">Structured status</text><text x="810.0" y="468" text-anchor="middle" class="box-body">messages</text><rect x="1010" y="360" width="220" height="180" rx="18" fill="#F6A54C" stroke="#B8C7D9" stroke-width="2"/><text x="1120.0" y="405" text-anchor="middle" class="box-title">ESP8266</text><text x="1120.0" y="440" text-anchor="middle" class="box-body">Wi-Fi client</text><text x="1120.0" y="468" text-anchor="middle" class="box-body">Cloud synchronisation</text><rect x="1320" y="360" width="220" height="180" rx="18" fill="#B89CFF" stroke="#B8C7D9" stroke-width="2"/><text x="1430.0" y="405" text-anchor="middle" class="box-title">Firebase</text><text x="1430.0" y="440" text-anchor="middle" class="box-body">Realtime database</text><rect x="1630" y="360" width="220" height="180" rx="18" fill="#4F8EF7" stroke="#B8C7D9" stroke-width="2"/><text x="1740.0" y="405" text-anchor="middle" class="box-title">Dashboard</text><text x="1740.0" y="440" text-anchor="middle" class="box-body">Administrator view</text><path d="M300,450 L390,450" class="arrow"/><path d="M610,450 L700,450" class="arrow"/><path d="M920,450 L1010,450" class="arrow"/><path d="M1230,450 L1320,450" class="arrow"/><path d="M1540,450 L1630,450" class="arrow"/><rect x="520" y="670" width="880" height="150" rx="18" fill="#F8FAFC" stroke="#B8C7D9" stroke-width="2"/><text x="960.0" y="715" text-anchor="middle" class="box-title">Typical Information Exchanged</text><text x="960.0" y="750" text-anchor="middle" class="box-body">Locker availability • active session • timer state</text><text x="960.0" y="778" text-anchor="middle" class="box-body">authentication result • locker status</text><text x="1830" y="1035" text-anchor="end" class="small">Diagram 4 of 6</text></svg>
